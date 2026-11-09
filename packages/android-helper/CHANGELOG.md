@@ -1,5 +1,25 @@
 # @hot-updater/android-helper
 
+## 1.2.0-rc.25
+
+### Minor Changes
+
+- 0d8a448: Select Google Play closed, open, or production tracks, optionally use staged rollout, and promote builds with a recorded Play submission without uploading them again. Keep sandbox submissions on internal testing.
+
+  Keep release-action OTA updates working after promotion and allow reruns with an explicit `--rollout` to update or complete public-track rollouts. Skip implicit reruns and downward promotions, and preserve release metadata when updating a rollout.
+
+  Upgrade a self-hosted server and Console before the CLI: older RC servers reject the new destinations with HTTP 400 after Play has released the build, and older RC Consoles crash on the new `submitted_to` labels.
+
+### Patch Changes
+
+- 8a045f4: The sandbox screen is native and shares one design on both platforms: SwiftUI on iOS 16 and later, and Jetpack Compose on Android, set in Geist. Expanding and collapsing rows animate smoothly, and the screen keeps its state across folds and rotations. A wide window, such as an open foldable, shows Home and Info side by side, away from the fold. Android gets edge-to-edge drawing and predictive Back. All of it ships only in sandbox builds.
+- Updated dependencies [a2d057c]
+- Updated dependencies [0d8a448]
+- Updated dependencies [5427f56]
+  - @hot-updater/cli-tools@1.2.0-rc.25
+  - @hot-updater/plugin-core@1.2.0-rc.25
+  - @hot-updater/protocol@1.2.0-rc.25
+
 ## 1.2.0-rc.24
 
 ### Patch Changes

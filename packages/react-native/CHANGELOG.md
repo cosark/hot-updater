@@ -1,5 +1,17 @@
 # @hot-updater/react-native
 
+## 1.2.0-rc.25
+
+### Patch Changes
+
+- 10281e9: Keep what Android crash recovery reads by reflection from R8: `BridgelessReactContext`'s host, and `ReactRootViewTagGenerator` with its root view tag counter. In a minified release build of an app with named instances, R8 renamed them, so a named instance's fatal JavaScript error on the New Architecture skipped crash recovery, and a crash couldn't be attributed to the instance on screen. Apps need no ProGuard rules of their own: the library's consumer rules cover everything it reads by reflection.
+- 36ffe93: The sandbox screen lists the last 10 bundles a QR code, a link, or a channel downloaded. Tapping one runs that exact bundle again, offline, until the app restarts. On iOS, only a sandbox whose bundle ID ends in `.sandbox` keeps copies; with the store app's ID, a row checks its channel.
+- c83defd: Sandbox screen fixes. Opening **Enter a channel** or **Enter URL manually** now scrolls the field and its button above the on-screen keyboard, on iOS and Android, also in a window shorter than the form, such as a phone on its side. With camera access off, the iOS QR scanner no longer shows the viewfinder and the aiming hint: it shows one line and an **Open Settings** button, or, when the camera is restricted on the device, only a line saying so. It reads the camera access again when the app comes back to the foreground. A link opened before any bundle runs no longer says it replaces the running bundle. The Geist license reads as paragraphs, without the file's hard line breaks, on both platforms.
+- 8a045f4: The sandbox screen is native and shares one design on both platforms: SwiftUI on iOS 16 and later, and Jetpack Compose on Android, set in Geist. Expanding and collapsing rows animate smoothly, and the screen keeps its state across folds and rotations. A wide window, such as an open foldable, shows Home and Info side by side, away from the fold. Android gets edge-to-edge drawing and predictive Back. All of it ships only in sandbox builds.
+- @hot-updater/plugin-insights@1.2.0-rc.25
+  - @hot-updater/plugin-remote-config@1.2.0-rc.25
+  - @hot-updater/protocol@1.2.0-rc.25
+
 ## 1.2.0-rc.24
 
 ### Patch Changes
